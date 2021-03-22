@@ -19,13 +19,15 @@
                 <div [fxShow]="!item.showOnDesktop" 
                      [fxShow.sm]="!item.showOnTablet" 
                      [fxShow.xs]="!item.showOnMobile">
-                    <button mat-menu-item>
-                        <mat-icon class="mr">{{item.icon}}</mat-icon>
+                    <a mat-button>
+                        <mat-icon class="mr" >{{item.icon}}</mat-icon>
                         {{item.label}}
-                    </button>
+                        {{item.routerLink}}
+                    </a>
                     <mat-divider></mat-divider>
                 </div>
             </ng-container>
         </mat-menu>
     </ng-container>
 </mat-toolbar>
+<!-- <router-outlet></router-outlet> -->
