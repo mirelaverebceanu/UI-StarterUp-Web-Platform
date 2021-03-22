@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormBuilder, FormControl } from '@angular/forms';
-import { Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDatepicker } from '@angular/material/datepicker';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-register',
@@ -10,11 +17,41 @@ import { Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  Roles: any = ['Admin', 'Author', 'Reader'];
+  Roles: any = ['Creator', 'Investor'];
+  Genders: any = ['Man', 'Woman', 'Other'];
+  Countries: any = ['Moldova', 'Romania', 'Denmark'];
 
-  constructor() { }
+  // form = new FormGroup({
+  //   firstName: new FormControl('', Validators.required),
+  //   lastName: new FormControl('', Validators.required),
+  //   email: new FormControl('', [
+  //     Validators.required,
+  //     Validators.email
+  //   ]),
+    
+  //  });
 
-  ngOnInit(): void {
-  }
+    // constructor() { }
+    emailFormControl = new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]);
+
+    passwordFormControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]);
+
+    matcher = new MyErrorStateMatcher();
+  
+    // get firstname(){
+    //   return this.form.get('firstName')
+    // }
+    ngOnInit() {
+    }
+  
+    // onSubmit(){
+    //   alert(JSON.stringify(this.form.value));
+    // }
 
 }
