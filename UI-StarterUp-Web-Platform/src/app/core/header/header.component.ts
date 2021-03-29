@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
       label: 'Sign Up',
       icon: 'app_registration',
       routerLink: "/register",
-      showOnMobile: true,
+      showOnMobile: false,
       showOnTablet: true,
       showOnDesktop: true
     },
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       label: 'Sign In',
       icon: 'login',
       routerLink: '/login',
-      showOnMobile: true,
+      showOnMobile: false,
       showOnTablet: true,
       showOnDesktop: true
     },

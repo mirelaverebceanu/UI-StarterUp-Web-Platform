@@ -3,7 +3,16 @@
         rel="stylesheet"> 
 <mat-toolbar fxLayout="row">
     <div fxFlex>Explore Create  Invest</div>
-    <button mat-button *ngFor="let item of menuItems" 
+        
+         <a mat-button routerLink={{item.routerLink}} *ngFor="let item of menuItems" 
+         [fxShow]="item.showOnDesktop" 
+         [fxShow.xs]="item.showOnMobile"
+         [fxShow.sm]="item.showOnTablet">
+         <mat-icon class="mr">{{item.icon}}</mat-icon>
+         {{item.label}}
+        </a>
+         
+    <!-- <button mat-button *ngFor="let item of menuItems" 
         [fxShow]="item.showOnDesktop" 
         [fxShow.xs]="item.showOnMobile"
         [fxShow.sm]="item.showOnTablet">
@@ -19,15 +28,14 @@
                 <div [fxShow]="!item.showOnDesktop" 
                      [fxShow.sm]="!item.showOnTablet" 
                      [fxShow.xs]="!item.showOnMobile">
-                    <a mat-button>
+                    <a mat-button {{item.routerLink}}>
                         <mat-icon class="mr" >{{item.icon}}</mat-icon>
                         {{item.label}}
-                        {{item.routerLink}}
                     </a>
                     <mat-divider></mat-divider>
                 </div>
             </ng-container>
         </mat-menu>
-    </ng-container>
+    </ng-container> -->
 </mat-toolbar>
 <!-- <router-outlet></router-outlet> -->

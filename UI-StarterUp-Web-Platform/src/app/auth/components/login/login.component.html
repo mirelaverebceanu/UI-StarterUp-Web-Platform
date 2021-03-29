@@ -2,21 +2,39 @@
 
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Log in</mat-card-title>
+        <mat-card-title>Sign in</mat-card-title>
       </mat-card-header>
   
       <form class="example-form">
         <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
+          <mat-form-field hintLabel="Enter your email" class="example-full-width">
+            <input matInput placeholder="Enter Your Username"[formControl]="emailFormControl"
+            [errorStateMatcher]="matcher">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
   
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
+          <mat-form-field appearance="standard">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Your password" [formControl]="passwordFormControl"
+            [errorStateMatcher]="matcher">
+            <mat-error *ngIf="passwordFormControl.hasError('minLength') && !passwordFormControl.hasError('required')">
+              Please enter a valid password with minimum 8 characters
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+            <mat-hint>Min 8 char 1 number and 1 alpha</mat-hint>
           </mat-form-field>
         </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block">Log in</button>
+        <button mat-stroked-button color="accent" class="btn-block">Sign in</button>
       </form>
+      <p class="addSpace">Forgot your password? Reset password <a mat-button routerLink="/resetPass">Here</a></p>
+      <p>Don't have an account? Register <a mat-button routerLink="/register">Here</a></p>
     </mat-card>
   
   </div>
