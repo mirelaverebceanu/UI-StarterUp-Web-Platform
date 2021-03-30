@@ -2,7 +2,9 @@
 "https://fonts.googleapis.com/icon?family=Material+Icons&display=block" 
         rel="stylesheet"> 
 <mat-toolbar fxLayout="row">
-    <div fxFlex>Explore Create  Invest</div>
+    <div fxFlex >
+        <a mat-button routerLink="/" class="home">Explore Create  Invest</a>
+    </div>
         
          <a mat-button routerLink={{item.routerLink}} *ngFor="let item of menuItems" 
          [fxShow]="item.showOnDesktop" 
