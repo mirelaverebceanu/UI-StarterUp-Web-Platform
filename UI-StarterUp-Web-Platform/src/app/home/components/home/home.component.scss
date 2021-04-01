@@ -1,16 +1,17 @@
 .cover {
       background-image: url('/assets/images/alex-knight-2EJCSULRwC8-unsplash.jpg') !important;
       background-size: cover;
-      background-position: center center;
-      max-width: 50%;
+      background-position: 50%;
 }
 
 /* Container holding the image and the text */
 .container {
+  margin-top: 60px;
   background-position: center center;
   background-clip: content-box;
   text-align: center;
   color: white;
+  position: relative;
 }
 
 /* Bottom left text */

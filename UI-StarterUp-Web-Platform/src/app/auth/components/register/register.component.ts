@@ -32,6 +32,12 @@ export class RegisterComponent implements OnInit {
   //  });
 
     // constructor() { }
+    fullnameFormControl = new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(30),
+    ]);
+
     emailFormControl = new FormControl('', [
       Validators.required,
       Validators.email,
@@ -41,6 +47,10 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.minLength(8),
     ]);
+
+    roleFormControl = new FormControl('', [
+      Validators.required
+    ])
 
     matcher = new MyErrorStateMatcher();
   

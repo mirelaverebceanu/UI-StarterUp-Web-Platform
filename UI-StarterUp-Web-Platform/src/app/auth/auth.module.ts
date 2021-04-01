@@ -18,6 +18,7 @@ import { MatRadioModule } from '@angular/material/radio'
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent, ForgotPasswordComponent],
@@ -36,6 +37,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule, 
+    MatDialogModule,
     AuthRoutingModule
   ],
   exports: [

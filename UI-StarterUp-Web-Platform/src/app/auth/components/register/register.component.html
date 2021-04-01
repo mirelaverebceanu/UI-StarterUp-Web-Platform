@@ -1,3 +1,4 @@
+<div mat-dialog-content>
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
@@ -8,7 +9,14 @@
   
         <mat-card-content>
           <mat-form-field appearance="standard" hintLabel="Enter First Name and Last Name" class="example-full-width">
-            <input matInput #input minLength="6" maxlength="20" placeholder="Enter Your Full Name">
+            <input matInput #input minLength="6" maxlength="30" placeholder="Enter Your Full Name" [formControl]="fullnameFormControl"
+            [errorStateMatcher]="matcher">
+            <mat-error *ngIf="!fullnameFormControl.hasError('required') && fullnameFormControl.hasError('minLength') ||  fullnameFormControl.hasError('maxLength')">
+              Please enter the full name
+            </mat-error>
+            <mat-error *ngIf="fullnameFormControl.hasError('required')">
+              Fullname is <strong>required</strong>
+            </mat-error>
             <!-- <mat-hint>Estimate : {{(20 - input.value?.length) || 20}}</mat-hint> -->
           </mat-form-field>
           <mat-form-field appearance="standard">
@@ -72,9 +80,13 @@
           <!-- <mat-icon>password</mat-icon> -->
           <mat-form-field appearance="standard">
             <mat-label>Choose a role...</mat-label>
-            <mat-select>
+            <mat-select [formControl]="roleFormControl"
+            [errorStateMatcher]="matcher">
               <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
               </mat-option>
+              <mat-error *ngIf="roleFormControl.hasError('required')">
+                Role is <strong>required</strong>
+              </mat-error>
             </mat-select>
           </mat-form-field>
         </div>
@@ -102,3 +114,4 @@
       <p class="addSpaceAbove">Already have an account? Login <a mat-button routerLink="/login">Here</a></p>
     </mat-card>
   </div>
+</div>

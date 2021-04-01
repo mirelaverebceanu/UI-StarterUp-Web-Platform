@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
+  slides = [{'image': 'assets/images/slide1.PNG'}, {'image': 'assets/images/slide2.PNG'},{'image': 'assets/images/slide3.PNG'}, {'image': 'assets/images/slide4.PNG'}];
 
   constructor() { }
 

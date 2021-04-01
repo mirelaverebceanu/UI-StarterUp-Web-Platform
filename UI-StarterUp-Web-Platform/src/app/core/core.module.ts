@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from '../auth/components/register/register.component';
 import { LoginComponent } from '../auth/components/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog'
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
     MatButtonModule,
     MatDividerModule,
     MatMenuModule, 
+    MatDialogModule,
     RouterModule.forRoot(routes)
   ],
   exports: [
