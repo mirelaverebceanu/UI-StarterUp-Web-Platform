@@ -1,0 +1,40 @@
+mat-toolbar {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    font-size: 20px;
+  }
+   
+  .full-width {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 400px;
+  }
+
+  .inRow {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .addSpaceBetween {
+    margin-right: 30px;
+  }
+
+  .fullD-width {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 1240px;
+  }
+
+  .fullM-width {
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: right;
+    width: 250px;
+  }

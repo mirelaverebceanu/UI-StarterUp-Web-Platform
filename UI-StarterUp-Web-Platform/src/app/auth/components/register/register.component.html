@@ -5,10 +5,10 @@
         <mat-card-title>Sign Up</mat-card-title>
       </mat-card-header>
   
-      <form class="example-form">
+      <form class="auth-form">
   
         <mat-card-content>
-          <mat-form-field appearance="standard" hintLabel="Enter First Name and Last Name" class="example-full-width">
+          <mat-form-field appearance="standard" hintLabel="Enter First Name and Last Name" class="auth-full-width">
             <input matInput #input minLength="6" maxlength="30" placeholder="Enter Your Full Name" [formControl]="fullnameFormControl"
             [errorStateMatcher]="matcher">
             <mat-error *ngIf="!fullnameFormControl.hasError('required') && fullnameFormControl.hasError('minLength') ||  fullnameFormControl.hasError('maxLength')">
@@ -24,17 +24,17 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <mat-form-field hintLabel="Enter your email" class="example-full-width">
-            <input matInput placeholder="Enter Your Username"[formControl]="emailFormControl"
+          <mat-form-field hintLabel="Enter your email" class="auth-full-width">
+            <input matInput placeholder="Enter Your Username"[formControl]="userFormControl"
             [errorStateMatcher]="matcher">
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            <mat-error *ngIf="userFormControl.hasError('email') && !userFormControl.hasError('required')">
               Please enter a valid email address
             </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
+            <mat-error *ngIf="userFormControl.hasError('required')">
               Email is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="auth-full-width">
             <input matInput placeholder="Email Address" [formControl]="emailFormControl"
                    [errorStateMatcher]="matcher">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -111,7 +111,7 @@
         <button mat-stroked-button color="accent" class="btn-block">Sign Up</button>
   
       </form>
-      <p class="addSpaceAbove">Already have an account? Login <a mat-button routerLink="/login">Here</a></p>
+      <p class="addSpaceAbove">Already have an account? Login <button mat-button (click) = "openLoginDialog()">Here</button></p>
     </mat-card>
   </div>
 </div>

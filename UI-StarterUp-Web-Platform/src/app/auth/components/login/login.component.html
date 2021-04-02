@@ -34,8 +34,8 @@
         </mat-card-content>
         <button mat-stroked-button color="accent" class="btn-block">Sign in</button>
       </form>
-      <p class="addSpace">Forgot your password? Reset password <a mat-button routerLink="/resetPass">Here</a></p>
-      <p>Don't have an account? Register <a mat-button routerLink="/register">Here</a></p>
+      <p class="addSpace">Forgot your password? Reset it <button mat-button (click)="openResetpassDialog()">Here</button></p>
+      <p>Don't have an account? Register <button mat-button (click)="openRegisterDialog()">Here</button></p>
     </mat-card>
   </div>
   </div>

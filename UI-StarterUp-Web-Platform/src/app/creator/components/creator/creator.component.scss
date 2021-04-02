@@ -1,0 +1,10 @@
+.inRow {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+.rightAlign {
+    align-content: flex-end;
+    margin-right: 30px;
+    text-align:right;
+}

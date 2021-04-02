@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { RegisterComponent } from '../register/register.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -12,8 +15,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  encapsulation:ViewEncapsulation.None
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -29,7 +31,19 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  // constructor() { }
+  constructor(public dialog: MatDialog) {}
+  openRegisterDialog(): void {
+    let dialogRef = this.dialog.open(RegisterComponent, {
+      width: '650px',
+    });
+  }
+
+  openResetpassDialog(): void {
+    let dialogRef = this.dialog.open(ForgotPasswordComponent, {
+      width: '450px',
+    });
+  }
 
   ngOnInit(): void {
   }

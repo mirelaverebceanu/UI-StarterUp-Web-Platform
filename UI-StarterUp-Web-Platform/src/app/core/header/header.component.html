@@ -5,14 +5,22 @@
     <div fxFlex >
         <a mat-button routerLink="/" class="home">Explore Create  Invest</a>
     </div>
+    <button mat-button (click) = "openLoginDialog()">
+         <mat-icon class="mr">login</mat-icon>
+         Sign In
+    </button>
+    <button mat-button (click) = "openRegisterDialog()">
+        <mat-icon class="mr">app_registration</mat-icon>
+        Sign Up
+   </button>
         
-         <a mat-button routerLink={{item.routerLink}} *ngFor="let item of menuItems" 
+         <!-- <a mat-button *ngFor="let item of menuItems" *ngIf="first" (click)="openLoginDialog()"
          [fxShow]="item.showOnDesktop" 
          [fxShow.xs]="item.showOnMobile"
          [fxShow.sm]="item.showOnTablet">
          <mat-icon class="mr">{{item.icon}}</mat-icon>
          {{item.label}}
-        </a>
+        </a> -->
          
     <!-- <button mat-button *ngFor="let item of menuItems" 
         [fxShow]="item.showOnDesktop" 

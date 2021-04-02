@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/menu-item';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
+import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 
 @Component({
   selector: 'app-header',
@@ -26,30 +28,31 @@ export class HeaderComponent implements OnInit {
       showOnTablet: true,
       showOnDesktop: true
     },
-    // {
-    //   label: 'Docs',
-    //   icon: 'notes',
-    //   showOnMobile: false,
-    //   showOnTablet: true,
-    //   showOnDesktop: true
-    // },
-    // {
-    //   label: 'Showcase',
-    //   icon: 'slideshow',
-    //   showOnMobile: false,
-    //   showOnTablet: false,
-    //   showOnDesktop: true
-    // },
-    // {
-    //   label: 'Blog',
-    //   icon: 'rss_feed',
-    //   showOnMobile: false,
-    //   showOnTablet: false,
-    //   showOnDesktop: true
-    // },
   ];
 
-  constructor() { }
+  // constructor() { }
+  
+  constructor(public dialog: MatDialog) {}
+  
+  openLoginDialog(): void {
+    let dialogRef = this.dialog.open(LoginComponent, {
+      width: '450px',
+    });
+  
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.animal = result;
+    // });
+  }
+
+  openRegisterDialog(): void {
+    let dialogRef = this.dialog.open(RegisterComponent, {
+      width: '650px',
+    });
+  
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.animal = result;
+    // });
+  }
 
   ngOnInit(): void {
   }

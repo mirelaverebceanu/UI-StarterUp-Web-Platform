@@ -1,0 +1,52 @@
+<mat-toolbar>
+    <span>Create</span>
+</mat-toolbar>
+   <form class="my-form">
+      <div class="inRow">
+            <mat-form-field class="full-width" >
+               <mat-label>
+                  Project Name
+               </mat-label>
+                  <input  matInput  placeholder="Poject name"  name="fname"  required>
+            </mat-form-field>
+            <mat-form-field class="full-width" >
+               <mat-label>Choose a category...</mat-label>
+               <mat-select>
+                 <mat-option [value]="categories" *ngFor="let categories of Categories">{{categories}}
+                 </mat-option>
+               </mat-select>
+             </mat-form-field>
+             <mat-form-field class="full-width" >
+               <mat-label>Choose the status...</mat-label>
+               <mat-select>
+                 <mat-option [value]="statuses" *ngFor="let statuses of Statuses">{{statuses}}
+                 </mat-option>
+               </mat-select>
+             </mat-form-field>
+      </div>
+      <mat-form-field class="fullD-width" appearance="outline">
+         <mat-label>Key Project Information</mat-label>
+         <textarea matInput></textarea>
+       </mat-form-field>
+       <div class="inRow">
+       <mat-form-field class="fullM-width">
+         <mat-label>Target amount</mat-label>
+         <input matInput type="number" >
+         <span matPrefix>&euro;</span>
+         <span matSuffix>.00</span>
+       </mat-form-field>
+       <mat-form-field class="fullM-width">
+         <input matInput [matDatepicker]="picker" placeholder="Target time">
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field>
+      </div>
+      <mat-selection-list class="full-width" #rules>
+         <mat-icon>rule</mat-icon>
+         <mat-list-option *ngFor="let rule of typesOfRules">
+           {{rule}}
+         </mat-list-option>
+       </mat-selection-list>
+                   
+    </form>
+  

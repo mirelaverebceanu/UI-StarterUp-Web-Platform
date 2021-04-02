@@ -1,0 +1,23 @@
+<div class="inRow">
+<p mat-dialog-title>Your Account</p>
+</div>
+<div mat-dialog-content>
+  <a mat-button href="/profile">Profile</a>
+</div>
+<div mat-dialog-content>
+  <a mat-button href="/settings">Settings</a>
+</div>
+<div mat-dialog-content>
+  <a mat-button href="/messages">Messages</a>
+</div>
+<div>
+  <p  mat-dialog-title >Your Creation</p>
+</div>
+<div mat-dialog-content>
+  <button mat-button routerLink="/newProject">NEW</button >
+</div>
+<div class="rightAlign">
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Log Out</button>
+</div>
+</div>
