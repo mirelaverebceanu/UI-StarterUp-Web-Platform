@@ -23,17 +23,38 @@ export class RegisterComponent implements OnInit {
   Genders: any = ['Man', 'Woman', 'Other'];
   Countries: any = ['Moldova', 'Romania', 'Denmark'];
 
-  // form = new FormGroup({
-  //   firstName: new FormControl('', Validators.required),
-  //   lastName: new FormControl('', Validators.required),
-  //   email: new FormControl('', [
-  //     Validators.required,
-  //     Validators.email
-  //   ]),
-    
-  //  });
+  registrationForm!: FormGroup;
 
     // constructor() { }
+
+    ngOnInit() {
+      // this.registrationForm = new FormGroup({
+      //   fullnameFormControl : new FormControl('', [
+      //     Validators.required,
+      //     Validators.minLength(6),
+      //     Validators.maxLength(30),
+      //   ]),
+      //   emailFormControl : new FormControl('', [
+      //     Validators.required,
+      //     Validators.email,
+      //   ]),
+    
+      //   userFormControl : new FormControl('', [
+      //     Validators.required,
+      //     Validators.email,
+      //   ]),
+    
+      //   passwordFormControl : new FormControl('', [
+      //     Validators.required,
+      //     Validators.minLength(8),
+      //   ]),
+    
+      //   roleFormControl : new FormControl('', [
+      //     Validators.required
+      //   ])
+      // })
+    }
+
     fullnameFormControl = new FormControl('', [
       Validators.required,
       Validators.minLength(6),
@@ -61,12 +82,6 @@ export class RegisterComponent implements OnInit {
 
     matcher = new MyErrorStateMatcher();
   
-    // get firstname(){
-    //   return this.form.get('firstName')
-    // }
-    ngOnInit() {
-    }
-  
     constructor(public dialog: MatDialog) {}
   
     openLoginDialog(): void {
@@ -78,8 +93,8 @@ export class RegisterComponent implements OnInit {
       //   this.animal = result;
       // });
     }
-    // onSubmit(){
-    //   alert(JSON.stringify(this.form.value));
-    // }
+    onSubmit(){
+      alert(JSON.stringify(this.registrationForm.value));
+    }
 
 }

@@ -3,16 +3,20 @@
         rel="stylesheet"> 
 <mat-toolbar fxLayout="row">
     <div fxFlex >
-        <a mat-button routerLink="/" class="home">Explore Create  Invest</a>
+        <a mat-button routerLink="/home" class="home">Explore Create  Invest</a>
     </div>
     <button mat-button (click) = "openLoginDialog()">
-         <mat-icon class="mr">login</mat-icon>
-         Sign In
+        <mat-icon class="mr">login</mat-icon>
+        Sign In
     </button>
     <button mat-button (click) = "openRegisterDialog()">
         <mat-icon class="mr">app_registration</mat-icon>
         Sign Up
    </button>
+   <button mat-button (click) = "openCreatorDialog()">
+    <mat-icon class="mr">account_circle</mat-icon>
+    Account
+    </button>
         
          <!-- <a mat-button *ngFor="let item of menuItems" *ngIf="first" (click)="openLoginDialog()"
          [fxShow]="item.showOnDesktop" 

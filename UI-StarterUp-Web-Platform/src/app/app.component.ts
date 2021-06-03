@@ -12,17 +12,17 @@ export class AppComponent {
   // animal!: string;
   // name!: string;
   
-  constructor(public dialog: MatDialog) {}
+  // constructor(public dialog: MatDialog) {}
   
-  openDialog(): void {
-    let dialogRef = this.dialog.open(CreatorComponent, {
-      width: '450px',
-      // data: { name: this.name, animal: this.animal }
-    });
+  // openDialog(): void {
+  //   let dialogRef = this.dialog.open(CreatorComponent, {
+  //     width: '450px',
+  //     // data: { name: this.name, animal: this.animal }
+  //   });
   
-    // dialogRef.afterClosed().subscribe(result => {
-    //   this.animal = result;
-    // });
-  }
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   this.animal = result;
+  //   // });
+  // }
   title = 'UI-StarterUp-Web-Platform';
 }

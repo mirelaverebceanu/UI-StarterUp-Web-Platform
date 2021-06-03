@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span>Profile</span>
+</mat-toolbar>
+<mat-card>
+    <span>This profile page is only visible to you.</span>
+    <button mat-button class="btn-setting" routerLink="/settings">
+        Manage your privacy settings
+    </button>
+</mat-card>
+<div class="center" id="profile_avatar">
+    <img alt="avatar" src="assets/images/profile.png">
+</div>
+<mat-tab-group mat-stretch-tabs>
+    <mat-tab label="About">  
+        <mat-list>
+            <mat-list-item>Biography
+            </mat-list-item>
+            <button mat-button class="btn-add">
+                Add a biography
+            </button>
+            <mat-divider></mat-divider>
+            <mat-list-item>Websites
+            </mat-list-item>
+            <button mat-button class="btn-add">
+                Add a website
+            </button>
+        </mat-list>
+    </mat-tab>
+    <mat-tab label="Created Projects">
+        <mat-list-item>
+        </mat-list-item>
+        <button mat-button class="btn-add" routerLink="/newProject">
+        Create a new project
+        </button>
+    </mat-tab>
+</mat-tab-group>

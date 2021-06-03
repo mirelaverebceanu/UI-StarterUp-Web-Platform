@@ -14,10 +14,10 @@
   <p  mat-dialog-title >Your Creation</p>
 </div>
 <div mat-dialog-content>
-  <button mat-button routerLink="/newProject">NEW</button >
+  <button mat-button routerLink="/newProject" (click)="onCancel()">NEW</button >
 </div>
 <div class="rightAlign">
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Log Out</button>
-</div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Log Out</button>
+  </div>
 </div>

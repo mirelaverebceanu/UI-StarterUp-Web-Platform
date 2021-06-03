@@ -1,0 +1,98 @@
+<mat-toolbar>
+    <span>Settings</span>
+</mat-toolbar>
+<mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Account">  
+        <form class="example-form">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                   Email
+                </mat-label>
+                   <input  matInput  placeholder="Email"  name="fname"  required>
+             </mat-form-field>
+             <mat-expansion-panel class="full-width" appearance="outline">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Change password
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+            
+                <mat-form-field  appearance="outline">
+                  <mat-label>New Password</mat-label>
+                  <input matInput>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput>
+                </mat-form-field>    
+            </mat-expansion-panel>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                   Current Password
+                </mat-label>
+                   <input  matInput  placeholder="Current Password"  name="fname"  required>
+             </mat-form-field>
+        </form>
+        <button mat-button class="btn">
+            Save settings
+        </button>
+        <button mat-button class="btn">
+            Delete account
+        </button>
+    </mat-tab>
+    <mat-tab label="Edit Profile"> 
+        <form class="example-form">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                   Name
+                </mat-label>
+                   <input  matInput  placeholder="Name"  name="fname"  required>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                   Biography
+                </mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <mat-checkbox class="full-width">Only show my name and avatar. Uncheck this box to also show your biography and websites</mat-checkbox>
+        </form>
+        <button mat-button class="btn">
+            Save settings
+        </button>
+    </mat-tab>
+    <mat-tab label="Notifications"> 
+        <mat-list>
+            <mat-list-item>
+            <mat-slide-toggle>Enable new replies in your active threads</mat-slide-toggle>
+            </mat-list-item>
+            <mat-list-item>
+            <mat-slide-toggle>Enable new messages on email</mat-slide-toggle>
+            </mat-list-item>
+            <mat-list-item>
+            <mat-slide-toggle>Enable invitations to help us improve StarterUp with your participation and feedback</mat-slide-toggle>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Projects you have launched
+            </mat-list-item>
+            <mat-list-item>
+                <mat-slide-toggle>Enable new comments on email</mat-slide-toggle>
+            </mat-list-item>
+            <mat-list-item>
+                Pick frequency to get your project activity summary
+            </mat-list-item>
+            <mat-list-item>
+                    <mat-radio-group>
+                        <mat-radio-button value="1">Daily</mat-radio-button>
+                        <mat-radio-button value="2">Weekly</mat-radio-button>
+                    </mat-radio-group>
+            </mat-list-item>
+        </mat-list>
+        <button mat-button class="btn">
+            Save settings
+        </button>
+    </mat-tab>
+    <mat-tab label="Newsletters"> Content 4 </mat-tab>
+</mat-tab-group>

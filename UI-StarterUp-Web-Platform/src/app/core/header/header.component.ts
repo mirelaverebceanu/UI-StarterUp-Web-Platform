@@ -3,6 +3,7 @@ import { MenuItem } from 'src/app/menu-item';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
+import { CreatorComponent } from 'src/app/creator/components/creator/creator.component';
 
 @Component({
   selector: 'app-header',
@@ -47,6 +48,17 @@ export class HeaderComponent implements OnInit {
   openRegisterDialog(): void {
     let dialogRef = this.dialog.open(RegisterComponent, {
       width: '650px',
+    });
+  
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.animal = result;
+    // });
+  }
+
+  openCreatorDialog(): void {
+    let dialogRef = this.dialog.open(CreatorComponent, {
+      width: '450px',
+      // data: { name: this.name, animal: this.animal }
     });
   
     // dialogRef.afterClosed().subscribe(result => {

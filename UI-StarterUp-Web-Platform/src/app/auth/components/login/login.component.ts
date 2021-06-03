@@ -19,6 +19,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
+  title = 'Sign in';
+
+  ngOnInit(): void {
+  }
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -43,9 +48,6 @@ export class LoginComponent implements OnInit {
     let dialogRef = this.dialog.open(ForgotPasswordComponent, {
       width: '450px',
     });
-  }
-
-  ngOnInit(): void {
   }
 
 }

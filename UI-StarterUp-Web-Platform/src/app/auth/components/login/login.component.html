@@ -1,16 +1,14 @@
 <div mat-dialog-content>
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Sign in</mat-card-title>
+        <mat-card-title>{{title}}</mat-card-title>
       </mat-card-header>
-  
       <form class="example-form">
         <mat-card-content>
           <mat-form-field hintLabel="Enter your email" class="example-full-width">
             <input matInput placeholder="Enter Your Username"[formControl]="emailFormControl"
-            [errorStateMatcher]="matcher">
+              [errorStateMatcher]="matcher">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
               Please enter a valid email address
             </mat-error>
@@ -19,10 +17,10 @@
             </mat-error>
           </mat-form-field>
   
-          <mat-form-field appearance="standard">
+          <mat-form-field appearance="standard" class="example-full-width">
             <mat-label>Password</mat-label>
             <input matInput type="password" placeholder="Your password" [formControl]="passwordFormControl"
-            [errorStateMatcher]="matcher">
+              [errorStateMatcher]="matcher">
             <mat-error *ngIf="passwordFormControl.hasError('minLength') && !passwordFormControl.hasError('required')">
               Please enter a valid password with minimum 8 characters
             </mat-error>
@@ -38,4 +36,4 @@
       <p>Don't have an account? Register <button mat-button (click)="openRegisterDialog()">Here</button></p>
     </mat-card>
   </div>
-  </div>
+</div>

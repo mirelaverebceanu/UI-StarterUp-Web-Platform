@@ -22,4 +22,12 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'Sign in'`, () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const component = fixture.debugElement.componentInstance;
+    expect(component.title ).toEqual('Sign in');
+  });
 });
+
+  
