@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { RestapiService } from 'src/app/restapi.service';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RegisterComponent } from '../register/register.component';
 
@@ -20,6 +21,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
 
   title = 'Sign in';
+  userName!: string;
+  password!: string;
 
   ngOnInit(): void {
   }
@@ -36,8 +39,7 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  // constructor() { }
-  constructor(public dialog: MatDialog) {}
+  constructor(private service: RestapiService, public dialog: MatDialog) {}
   openRegisterDialog(): void {
     let dialogRef = this.dialog.open(RegisterComponent, {
       width: '650px',
@@ -48,6 +50,13 @@ export class LoginComponent implements OnInit {
     let dialogRef = this.dialog.open(ForgotPasswordComponent, {
       width: '450px',
     });
+  }
+
+  login(){
+    let resp= this.service.login(this.userName, this.password);
+    resp.subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }

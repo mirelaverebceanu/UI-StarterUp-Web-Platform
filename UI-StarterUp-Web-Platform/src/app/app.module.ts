@@ -15,6 +15,8 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CreatorModule } from './creator/creator.module'
+import { RestapiService } from './restapi.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { CreatorModule } from './creator/creator.module'
     MatCommonModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RestapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
