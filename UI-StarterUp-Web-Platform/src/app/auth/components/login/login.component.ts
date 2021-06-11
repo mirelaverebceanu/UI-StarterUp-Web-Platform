@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   title = 'Sign in';
   // userName!: string;
   // password!: string;
-  user: User = new User("","");
+  public user: User = new User("","");
 
 
   ngOnInit(): void {
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(){
+  public login(){
     // let resp= this.service.login(this.userName, this.password);
     // resp.subscribe(data=>{
     //   console.log(data)
