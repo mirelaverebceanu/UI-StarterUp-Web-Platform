@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RestapiService } from 'src/app/restapi.service';
+import { User } from 'src/app/user';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RegisterComponent } from '../register/register.component';
 
@@ -21,8 +22,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
 
   title = 'Sign in';
-  userName!: string;
-  password!: string;
+  // userName!: string;
+  // password!: string;
+  user: User = new User("","");
+
 
   ngOnInit(): void {
   }
@@ -53,10 +56,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    let resp= this.service.login(this.userName, this.password);
+    // let resp= this.service.login(this.userName, this.password);
+    // resp.subscribe(data=>{
+    //   console.log(data)
+    // })
+    let resp = this.service.login(this.user);
+    // resp.subscribe((data)=>this.message=data);
     resp.subscribe(data=>{
-      console.log(data)
-    })
+        console.log(data)
+      })
   }
 
 }
