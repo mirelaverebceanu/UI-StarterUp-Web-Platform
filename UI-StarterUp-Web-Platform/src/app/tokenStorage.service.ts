@@ -74,3 +74,10 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
 }
+
+export class JwtResponse{
+    constructor(
+      public jwttoken:string,
+       ) {}
+  
+  }
