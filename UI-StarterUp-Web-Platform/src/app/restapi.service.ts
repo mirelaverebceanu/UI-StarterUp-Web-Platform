@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthBody } from './authbody';
@@ -11,6 +11,7 @@ import { User } from './user';
 export class RestapiService {
   parsedJsonFromLogin: any;
   public token: any;
+  headers: any;
 
   constructor(private http:HttpClient) { }
 
@@ -22,9 +23,12 @@ export class RestapiService {
       this.token = this.parsedJsonFromLogin.split(":")[2].split("\\")[1].substring(1);
       console.log(this.token);
     })
-    
+    this.headers = new HttpHeaders().set("Authorization", this.token);
     return rsp;
   }
+  // public createAuthHeader(headers: Headers){
+  //   headers.append("Authorization", this.token);
+  // }
 
   public register(user: User){
     return this.http.post("http://localhost:8080/api/register",user,{responseType:'text' as 'json'});
@@ -44,7 +48,7 @@ export class RestapiService {
 
   public uploadFile(file: File){
     let id = this.http.get("http://localhost:8080/api/users/show/auth");
-    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file);
+    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file, {'headers': this.headers});
   }
 
 }
