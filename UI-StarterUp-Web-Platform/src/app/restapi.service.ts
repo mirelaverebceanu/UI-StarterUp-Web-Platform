@@ -46,10 +46,10 @@ export class RestapiService {
 
       );
   }
-  public createAuthHeader(headers: Headers){
-    if (sessionStorage.getItem('token')){
-    headers.append("Authorization", this.token);}
-  }
+  // public createAuthHeader(headers: Headers){
+  //   if (sessionStorage.getItem('token')){
+  //   headers.append("Authorization", this.token);}
+  // }
 
   public register(user: User){
     return this.http.post("http://localhost:8080/api/register",user,{responseType:'text' as 'json'});
@@ -60,7 +60,7 @@ export class RestapiService {
   }
 
   public createProject(project: Project){
-    return this.http.post("http://localhost:8080/api/projects/create", project,  {responseType:'text' as 'json', 'headers': this.headers});
+    return this.http.post("http://localhost:8080/api/projects/create", project,  {responseType:'text' as 'json'});
   }
 
   // public getUser(auth: AuthBody){
@@ -69,7 +69,7 @@ export class RestapiService {
 
   public uploadFile(file: File){
     let id = this.http.get("http://localhost:8080/api/users/show/auth");
-    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file, {'headers': this.headers});
+    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file);
   }
 
   isUserLoggedIn() {

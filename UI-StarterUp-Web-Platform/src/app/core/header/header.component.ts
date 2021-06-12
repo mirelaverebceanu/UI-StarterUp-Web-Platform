@@ -6,6 +6,7 @@ import { RegisterComponent } from 'src/app/auth/components/register/register.com
 import { CreatorComponent } from 'src/app/creator/components/creator/creator.component';
 import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
+import { RestapiService } from 'src/app/restapi.service';
 
 @Component({
   selector: 'app-header',
@@ -37,20 +38,21 @@ export class HeaderComponent implements OnInit {
 
   // constructor() { }
   
-  constructor(private router:Router, public dialog: MatDialog) {}
+  constructor(private service: RestapiService, private router:Router, public dialog: MatDialog) {}
   
   openLoginDialog(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '450px',
     });
 
-    // if(this.child.isLogged){
-    //   this.authenticated = true;
-    // }
-    dialogRef.afterClosed().subscribe(result => {
+    if(this.service.isUserLoggedIn()){
       this.authenticated = true;
-    });
+    }
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.authenticated = true;
+    // });
   }
+  
 
   openRegisterDialog(): void {
     let dialogRef = this.dialog.open(RegisterComponent, {

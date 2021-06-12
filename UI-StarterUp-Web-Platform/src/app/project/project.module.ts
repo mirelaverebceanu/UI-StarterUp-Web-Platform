@@ -17,6 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './components/project/project.component';
@@ -43,6 +46,9 @@ import { CardComponent } from './components/card/card.component';
     MatDialogModule,
     MatToolbarModule,
     MatListModule,
+    MatProgressBarModule,
+    MatTabsModule,
+    MatBadgeModule,
     ProjectRoutingModule
   ],
   exports: [
