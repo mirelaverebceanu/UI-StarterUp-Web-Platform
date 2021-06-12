@@ -46,9 +46,10 @@ export class RestapiService {
 
       );
   }
-  // public createAuthHeader(headers: Headers){
-  //   headers.append("Authorization", this.token);
-  // }
+  public createAuthHeader(headers: Headers){
+    if (sessionStorage.getItem('token')){
+    headers.append("Authorization", this.token);}
+  }
 
   public register(user: User){
     return this.http.post("http://localhost:8080/api/register",user,{responseType:'text' as 'json'});
