@@ -16,8 +16,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CreatorModule } from './creator/creator.module'
 import { RestapiService } from './restapi.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardDirective } from './card.directive';
+import { AuthInterceptor } from './tokenStorage.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { CardDirective } from './card.directive';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [RestapiService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    RestapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

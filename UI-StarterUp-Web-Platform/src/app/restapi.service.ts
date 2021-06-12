@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHandler, HttpHeaderResponse, HttpHeaders, HttpParams, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthBody } from './authbody';
@@ -20,8 +20,8 @@ export class RestapiService {
     rsp.subscribe(data=>{
       this.parsedJsonFromLogin = JSON.stringify(data);
       console.log(this.parsedJsonFromLogin);
-      this.token = this.parsedJsonFromLogin.split(":")[2].split("\\")[1].substring(1);
-      console.log(this.token);
+      const token = this.parsedJsonFromLogin.split(":")[2].split("\\")[1].substring(1);
+      console.log(token);
     })
     this.headers = new HttpHeaders().set("Authorization", this.token);
     return rsp;
