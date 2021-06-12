@@ -17,10 +17,12 @@ import { MatInputModule } from '@angular/material/input';
 import { CreatorModule } from './creator/creator.module'
 import { RestapiService } from './restapi.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CardDirective } from './card.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardDirective
   ],
   imports: [
     BrowserModule,

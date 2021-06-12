@@ -39,7 +39,7 @@ export class RestapiService {
   }
 
   public createProject(project: Project){
-    return this.http.post("http://localhost:8080/api/projects/create", project, {responseType:'text' as 'json'});
+    return this.http.post("http://localhost:8080/api/projects/create", project,  {responseType:'text' as 'json', 'headers': this.headers});
   }
 
   // public getUser(auth: AuthBody){
