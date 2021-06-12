@@ -1,8 +1,12 @@
+import { NgIf } from '@angular/common';
+import { ViewChild } from '@angular/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AuthBody } from 'src/app/authbody';
+import { HeaderComponent } from 'src/app/core/header/header.component';
 import { RestapiService } from 'src/app/restapi.service';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RegisterComponent } from '../register/register.component';
@@ -24,10 +28,13 @@ export class LoginComponent implements OnInit {
   title = 'Sign in';
   // userName!: string;
   // password!: string;
+  islogged=false;
+  @ViewChild(HeaderComponent) child: any;  
   public auth: AuthBody = new AuthBody("","");
 
 
   ngOnInit(): void {
+  
   }
 
   emailFormControl = new FormControl('', [
@@ -42,7 +49,7 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private service: RestapiService, public dialog: MatDialog) {}
+  constructor(private router:Router, private service: RestapiService, public dialog: MatDialog) {}
   openRegisterDialog(): void {
     this.dialog.closeAll();
     let dialogRef = this.dialog.open(RegisterComponent, {
@@ -67,6 +74,11 @@ export class LoginComponent implements OnInit {
     resp.subscribe(data=>{
         console.log(data)
       })
+    this.router.navigate(['/home']);
+    if(this.auth.email){
+      this.islogged= true;
+      this.dialog.closeAll();
+    }
   }
 
 }

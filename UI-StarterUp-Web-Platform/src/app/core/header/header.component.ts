@@ -4,6 +4,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { LoginComponent } from 'src/app/auth/components/login/login.component';
 import { RegisterComponent } from 'src/app/auth/components/register/register.component';
 import { CreatorComponent } from 'src/app/creator/components/creator/creator.component';
+import { Router } from '@angular/router';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +14,8 @@ import { CreatorComponent } from 'src/app/creator/components/creator/creator.com
 })
 export class HeaderComponent implements OnInit {
 
+  authenticated = false;
+  @ViewChild(LoginComponent) child: any; 
   menuItems: MenuItem[] = [
     {
       label: 'Sign Up',
@@ -33,15 +37,18 @@ export class HeaderComponent implements OnInit {
 
   // constructor() { }
   
-  constructor(public dialog: MatDialog) {}
+  constructor(private router:Router, public dialog: MatDialog) {}
   
   openLoginDialog(): void {
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '450px',
     });
-  
+
+    if(this.child.isLogged){
+      this.authenticated = true;
+    }
     // dialogRef.afterClosed().subscribe(result => {
-    //   this.animal = result;
+    //   this.authenticated = true;
     // });
   }
 
@@ -58,12 +65,12 @@ export class HeaderComponent implements OnInit {
   openCreatorDialog(): void {
     let dialogRef = this.dialog.open(CreatorComponent, {
       width: '450px',
-      // data: { name: this.name, animal: this.animal }
     });
-  
-    // dialogRef.afterClosed().subscribe(result => {
-    //   this.animal = result;
-    // });
+  }
+
+  logout(){
+    this.authenticated= false;
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {

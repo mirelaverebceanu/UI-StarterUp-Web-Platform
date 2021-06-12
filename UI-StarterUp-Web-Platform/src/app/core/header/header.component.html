@@ -5,6 +5,7 @@
     <div fxFlex >
         <a mat-button routerLink="/home" class="home">Explore Create  Invest</a>
     </div>
+    <div [hidden]="authenticated">
     <button mat-button (click) = "openLoginDialog()">
         <mat-icon class="mr">login</mat-icon>
         Sign In
@@ -13,10 +14,17 @@
         <mat-icon class="mr">app_registration</mat-icon>
         Sign Up
    </button>
+    </div>
+    <div [hidden]="!authenticated">
    <button mat-button (click) = "openCreatorDialog()">
     <mat-icon class="mr">account_circle</mat-icon>
     Account
     </button>
+    <button mat-button (click) = "logout()">
+    <mat-icon class="mr">account_circle</mat-icon>
+     Log out
+    </button>
+    </div>
         
          <!-- <a mat-button *ngFor="let item of menuItems" *ngIf="first" (click)="openLoginDialog()"
          [fxShow]="item.showOnDesktop" 
