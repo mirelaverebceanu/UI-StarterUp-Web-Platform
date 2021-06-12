@@ -75,10 +75,8 @@ export class LoginComponent implements OnInit {
         console.log(data)
       })
     this.router.navigate(['/home']);
-    if(this.auth.email){
       this.islogged= true;
       this.dialog.closeAll();
-    }
   }
 
 }

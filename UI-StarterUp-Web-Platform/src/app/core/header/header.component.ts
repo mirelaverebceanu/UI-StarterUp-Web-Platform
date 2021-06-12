@@ -44,12 +44,12 @@ export class HeaderComponent implements OnInit {
       width: '450px',
     });
 
-    if(this.child.isLogged){
-      this.authenticated = true;
-    }
-    // dialogRef.afterClosed().subscribe(result => {
+    // if(this.child.isLogged){
     //   this.authenticated = true;
-    // });
+    // }
+    dialogRef.afterClosed().subscribe(result => {
+      this.authenticated = true;
+    });
   }
 
   openRegisterDialog(): void {

@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthBody } from './authbody';
 import { Project } from './project';
 import { User } from './user';
@@ -35,6 +36,15 @@ export class RestapiService {
 
   public createProject(project: Project){
     return this.http.post("http://localhost:8080/api/projects/create", project, {responseType:'text' as 'json'});
+  }
+
+  // public getUser(auth: AuthBody){
+  //   return this.http.get("http://localhost:8080/api/users/show/{email}", auth.email, )
+  // }
+
+  public uploadFile(file: File){
+    let id = this.http.get("http://localhost:8080/api/users/show/auth");
+    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file);
   }
 
 }

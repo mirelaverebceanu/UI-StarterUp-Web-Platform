@@ -46,7 +46,9 @@
          <mat-list-option *ngFor="let rule of typesOfRules">
            {{rule}}
          </mat-list-option>
-       </mat-selection-list>
-                   
+       </mat-selection-list>           
     </form>
+    <button mat-button class="btn-create" type="submit" name="Create" (click)="create()">
+      Create
+    </button> 
   
