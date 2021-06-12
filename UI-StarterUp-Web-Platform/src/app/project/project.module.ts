@@ -20,10 +20,11 @@ import { MatListModule } from '@angular/material/list';
 
 import { ProjectRoutingModule } from './project-routing.module';
 import { ProjectComponent } from './components/project/project.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
-  declarations: [ProjectComponent],
+  declarations: [ProjectComponent, CardComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -45,7 +46,7 @@ import { ProjectComponent } from './components/project/project.component';
     ProjectRoutingModule
   ],
   exports: [
-    ProjectComponent
+    ProjectComponent, CardComponent
   ]
 })
 export class ProjectModule { }

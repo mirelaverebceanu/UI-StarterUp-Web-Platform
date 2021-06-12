@@ -41,14 +41,19 @@
            <mat-datepicker #picker></mat-datepicker>
        </mat-form-field>
       </div>
+      <div class="inRow">
+      <span class="full-width" >Choose Media File <input class="center" class="btn-add" type="file" (change)="uploadFile($event)"></span>
+      
+      <span class="full-width" >Choose BusinessPlan File <input class="center" class="btn-add" type="file" (change)="uploadFile($event)"></span>
+      
+    </div>
       <mat-selection-list class="full-width" #rules>
          <mat-icon>rule</mat-icon>
          <mat-list-option *ngFor="let rule of typesOfRules">
            {{rule}}
          </mat-list-option>
-       </mat-selection-list>           
+       </mat-selection-list>  
+    <button mat-stroked-button  class="btn-create" type="submit" name="Create" (click)="create()">Create</button>         
     </form>
-    <button mat-button class="btn-create" type="submit" name="Create" (click)="create()">
-      Create
-    </button> 
+    
   
