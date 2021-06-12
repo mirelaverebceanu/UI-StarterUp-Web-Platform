@@ -7,7 +7,7 @@
       <form class="example-form" action="login" method="post">
         <mat-card-content>
           <mat-form-field hintLabel="Enter your email" class="example-full-width">
-            <input matInput type="text" name="userName" [(ngModel)]="user.email" id="email" placeholder="Enter Your Username"[formControl]="emailFormControl"
+            <input matInput type="text" name="userName" [(ngModel)]="auth.email" id="email" placeholder="Enter Your Username"[formControl]="emailFormControl"
               [errorStateMatcher]="matcher">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
               Please enter a valid email address
@@ -19,7 +19,7 @@
   
           <mat-form-field appearance="standard" class="example-full-width">
             <mat-label>Password</mat-label>
-            <input matInput type="password" name="password" [(ngModel)]="user.password" placeholder="Your password" [formControl]="passwordFormControl"
+            <input matInput type="password" name="password" [(ngModel)]="auth.password" placeholder="Your password" [formControl]="passwordFormControl"
               [errorStateMatcher]="matcher">
             <mat-error *ngIf="passwordFormControl.hasError('minLength') && !passwordFormControl.hasError('required')">
               Please enter a valid password with minimum 8 characters

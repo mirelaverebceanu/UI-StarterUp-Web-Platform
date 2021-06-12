@@ -30,6 +30,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
   
   openLoginDialog(): void {
+    this.dialog.closeAll();
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '450px',
     });
@@ -40,6 +41,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
+    this.dialog.closeAll();
     let dialogRef = this.dialog.open(RegisterComponent, {
       width: '650px',
     });

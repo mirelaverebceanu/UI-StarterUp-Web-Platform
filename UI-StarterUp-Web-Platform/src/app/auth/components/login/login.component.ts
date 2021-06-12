@@ -2,8 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthBody } from 'src/app/authbody';
 import { RestapiService } from 'src/app/restapi.service';
-import { User } from 'src/app/user';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 import { RegisterComponent } from '../register/register.component';
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   title = 'Sign in';
   // userName!: string;
   // password!: string;
-  public user: User = new User("","");
+  public auth: AuthBody = new AuthBody("","");
 
 
   ngOnInit(): void {
@@ -44,12 +44,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private service: RestapiService, public dialog: MatDialog) {}
   openRegisterDialog(): void {
+    this.dialog.closeAll();
     let dialogRef = this.dialog.open(RegisterComponent, {
       width: '650px',
     });
   }
 
   openResetpassDialog(): void {
+    this.dialog.closeAll();
     let dialogRef = this.dialog.open(ForgotPasswordComponent, {
       width: '450px',
     });
@@ -60,7 +62,7 @@ export class LoginComponent implements OnInit {
     // resp.subscribe(data=>{
     //   console.log(data)
     // })
-    let resp = this.service.login(this.user);
+    let resp = this.service.login(this.auth);
     // resp.subscribe((data)=>this.message=data);
     resp.subscribe(data=>{
         console.log(data)

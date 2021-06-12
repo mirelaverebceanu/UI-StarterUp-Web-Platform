@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from 'src/app/project';
+import { RestapiService } from 'src/app/restapi.service';
 
 @Component({
   selector: 'app-project',
@@ -13,9 +15,18 @@ export class ProjectComponent implements OnInit {
   Statuses: any = ['Start-up', 'Small Business'];
 
   typesOfRules: string[] = ['I am at least 18', 'I can verify an adress and bank account', 'I have a debt/credit card'];
-  constructor() { }
+  constructor(private service: RestapiService) { }
 
   ngOnInit(): void {
+  }
+
+  public project: Project = new Project();
+
+  public create(){
+    let resp = this.service.createProject(this.project);
+    resp.subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }

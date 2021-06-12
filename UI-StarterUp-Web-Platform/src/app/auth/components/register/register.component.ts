@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
+import { RestapiService } from 'src/app/restapi.service';
+import { User } from 'src/app/user';
 import { LoginComponent } from '../login/login.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,6 +26,8 @@ export class RegisterComponent implements OnInit {
   Countries: any = ['Moldova', 'Romania', 'Denmark'];
 
   registrationForm!: FormGroup;
+
+  user: User = new User();
 
     // constructor() { }
 
@@ -82,19 +86,29 @@ export class RegisterComponent implements OnInit {
 
     matcher = new MyErrorStateMatcher();
   
-    constructor(public dialog: MatDialog) {}
+    constructor(private service: RestapiService, public dialog: MatDialog) {}
   
     openLoginDialog(): void {
+      this.dialog.closeAll();
       let dialogRef = this.dialog.open(LoginComponent, {
         width: '450px',
       });
-    
       // dialogRef.afterClosed().subscribe(result => {
       //   this.animal = result;
       // });
     }
-    onSubmit(){
-      alert(JSON.stringify(this.registrationForm.value));
+    // onSubmit(){
+    //   alert(JSON.stringify(this.registrationForm.value));
+    // }
+
+    public register(){
+      let resp = this.service.register(this.user);
+      resp.subscribe(data=>{
+        console.log(data)
+      })
+      this.dialog.closeAll();
     }
+
+
 
 }
