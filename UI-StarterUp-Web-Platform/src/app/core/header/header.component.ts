@@ -71,10 +71,15 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    this.authenticated= false;
-    this.router.navigate(['/']);
+    let resp = this.service.logout();
+    // resp.subscribe((data)=>this.message=data);
+    resp.subscribe(data=>{
+        console.log(data)
+      })
+    this.router.navigate(['/home']);
+      this.dialog.closeAll();
   }
-
+    
   ngOnInit(): void {
   }
 

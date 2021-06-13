@@ -67,9 +67,22 @@ export class RestapiService {
   //   return this.http.get("http://localhost:8080/api/users/show/{email}", auth.email, )
   // }
 
-  public uploadFile(file: File){
-    let id = this.http.get("http://localhost:8080/api/users/show/auth");
-    return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file);
+  public uploadFile(file: any){
+    // let id = this.http.get("http://localhost:8080/api/users/show/auth");
+    // return this.http.put("http://localhost:8080/api/users/updateAvatar/${id}", file);
+    this.http.get<any>('http://localhost:8080/api/users/show/auth', {responseType:'text' as 'json'}).pipe(
+      map(
+        data => {
+         this.parsedJsonFromLogin = JSON.stringify(data);
+         console.log(this.parsedJsonFromLogin);
+         sessionStorage.setItem('id', data);
+         return data;
+        }
+      )
+     );
+    const id = "60c4c29a1cec4900550b931a";
+    const params = new HttpParams().append('file', file);
+    return this.http.put("http://localhost:8080/api/users/updateAvatar?id="+ `${id}`, {params});
   }
 
   isUserLoggedIn() {
@@ -80,6 +93,10 @@ export class RestapiService {
 
   public getProjects(){
     return this.http.get("http://localhost:8080/api/projects")
+  }
+
+  public logout(){
+    return this.http.get("http://localhost:8080/api/users/logout")
   }
 
 }
