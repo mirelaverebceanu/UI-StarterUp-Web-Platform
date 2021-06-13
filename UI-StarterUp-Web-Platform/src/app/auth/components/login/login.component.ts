@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   title = 'Sign in';
   // userName!: string;
   // password!: string;
-  islogged=false;
   @ViewChild(HeaderComponent) child: any;  
   public auth: AuthBody = new AuthBody("","");
 
@@ -75,7 +74,6 @@ export class LoginComponent implements OnInit {
         console.log(data)
       })
     this.router.navigate(['/home']);
-      this.islogged= true;
       this.dialog.closeAll();
   }
 

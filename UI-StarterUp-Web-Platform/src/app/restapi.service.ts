@@ -78,4 +78,8 @@ export class RestapiService {
     return !(user === null)
   }
 
+  public getProjects(){
+    return this.http.get("http://localhost:8080/api/projects")
+  }
+
 }

@@ -2,13 +2,13 @@
 <p mat-dialog-title>Your Account</p>
 </div>
 <div mat-dialog-content>
-  <a mat-button href="/profile">Profile</a>
+  <button mat-button routerLink="/profile" (click)="onCancel()">Profile</button >
 </div>
 <div mat-dialog-content>
-  <a mat-button href="/settings">Settings</a>
+  <button mat-button routerLink="/settings" (click)="onCancel()">Settings</button >
 </div>
 <div mat-dialog-content>
-  <a mat-button href="/messages">Messages</a>
+  <button mat-button routerLink="/messages" (click)="onCancel()">Messages</button >
 </div>
 <div>
   <p  mat-dialog-title >Your Creation</p>
